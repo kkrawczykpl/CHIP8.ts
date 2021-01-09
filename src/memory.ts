@@ -2,10 +2,11 @@
  * CHIP-8 Emulator: Memory
  * Krzysztof Krawczyk, January 2020
  * 
+ * Handles initialization of the memory, write and read functionalities.
  * Thanks:
  *  - https://en.wikipedia.org/wiki/CHIP-8
  */
-class Memory {
+export class Memory {
     private memory: Uint8Array;
     constructor() {
         // CHIP-8 was most commonly implemented on 4K systems
