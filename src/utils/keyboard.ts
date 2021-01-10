@@ -1,7 +1,7 @@
 import { keysMap } from "./consts";
 /**
  * CHIP-8 Emulator: Keyboard
- * Krzysztof Krawczyk, January 2020
+ * Krzysztof Krawczyk, January 2021
  * 
  * Computers which originally used CHIP-8 had a 16-key
  * hex keyboard 0-F. It has to be mapped into other configuration.
@@ -19,28 +19,28 @@ import { keysMap } from "./consts";
 
 
 export default class Keyboard {
-    public keys: Uint8Array;
+    public keysPressed: Uint8Array;
 
     constructor() {
-        this.keys = new Uint8Array(0x10).fill(0);
+        this.keysPressed = new Uint8Array(0x10).fill(0);
         console.log('Keyboard initialized....');
     }
     
-    setKeyDown(event: KeyboardEvent) {
+    public setKeyDown(event: KeyboardEvent) {
         const key: string = event.key.toUpperCase();
         let index: number = keysMap.indexOf(key); 
         if(index > -1) {
-            this.keys[index] = 1;
+            this.keysPressed[index] = 1;
         }
-        console.log(this.keys);
+        console.log(this.keysPressed);
     }
 
     public setKeyUp(event: KeyboardEvent) {
         const key: string = event.key.toUpperCase();
         let index: number = keysMap.indexOf(key); 
         if(index > -1) {
-            this.keys[index] = 0;
+            this.keysPressed[index] = 0;
         }
-        console.log(this.keys);
+        console.log(this.keysPressed);
     }
 }

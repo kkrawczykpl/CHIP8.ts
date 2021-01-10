@@ -1,6 +1,6 @@
 /**
  * CHIP-8 Emulator: Memory
- * Krzysztof Krawczyk, January 2020
+ * Krzysztof Krawczyk, January 2021
  * 
  * Handles initialization of the memory, write and read functionalities.
  * Thanks:
@@ -27,6 +27,18 @@ export class Memory {
             console.log("W: Memory overflow!");
         }else{
             this.memory[addr] = writeData;
+        }
+    }
+
+    set(data: number[], index: number = 0) {
+        try {
+            this.memory.set(data, index);
+        } catch (e) {
+            if(e instanceof RangeError) {
+                console.log("S: Memory overflow!");
+            }else{
+                throw e;
+            }
         }
     }
 }
