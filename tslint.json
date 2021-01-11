@@ -4,6 +4,11 @@
         "tslint:recommended"
     ],
     "jsRules": {},
-    "rules": {},
+    "rules": {
+        "class-name": true,
+        "no-var-keyword": true,
+        "no-bitwise": false,
+        "no-console": false
+    },
     "rulesDirectory": []
 }
